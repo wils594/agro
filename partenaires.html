@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRI-VALOR ÉCOLOGIQUE | Excellence Durable</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --vert: #27ae60;
+            --vert-dark: #1e8449;
+            --noir-glass: rgba(0, 0, 0, 0.6);
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%; font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- LOGO & BRAND --- */
+        .logo-img {
+            height: 70px;
+            width: auto;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        /* --- BACKGROUND SLIDER --- */
+        .slider-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; overflow: hidden;
+        }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; animation: slideFade 15s infinite ease-in-out;
+        }
+        .slide:nth-child(1) { background-image: url('assets/ayite.jpg'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('assets/ml.jpg'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('assets/cc.jpg'); animation-delay: 10s; }
+
+        @keyframes slideFade {
+            0% { opacity: 0; transform: scale(1); }
+            10% { opacity: 1; }
+            33% { opacity: 1; }
+            43% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
+        }
+
+        /* OVERLAY PLUS SOMBRE POUR LA LISIBILITÉ */
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.5) 0%, 
+                rgba(0,0,0,0.3) 40%, 
+                rgba(0,0,0,0.8) 100%);
+            z-index: -1;
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar { padding: 15px 50px; background: transparent; }
+        
+        /* Effet de texte néon/ombre pour les liens */
+        .nav-link {
+            color: white !important;
+            font-weight: 700;
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 0.5px;
+        }
+        .nav-link:hover { color: var(--vert) !important; }
+
+        /* --- HERO SECTION LISIBLE --- */
+        .hero-container {
+            height: 85vh;
+            display: flex;
+            align-items: center; justify-content: center;
+            text-align: center; color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.4); /* Boite de lecture légère */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px); /* Floute légèrement le fond derrière le texte */
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            font-weight: 900;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.9);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.9);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn-hero {
+            background-color: var(--vert);
+            color: white;
+            font-weight: 800;
+            padding: 20px 50px;
+            border-radius: 50px; /* Plus moderne */
+            text-decoration: none;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        /* --- RESPONSIVITÉ --- */
+        @media (max-width: 991px) {
+            .navbar { background: rgba(0,0,0,0.8); padding: 10px 20px; }
+            .hero-content { background: transparent; backdrop-filter: none; }
+            .hero-content p { font-size: 1.1rem; }
+        }
+
+        .footer-mini {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-wrapper">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="overlay"></div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/gh-removebg-preview.png" alt="Logo Agri-Valor" class="logo-img">
+            </a>
+
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <i class="bi bi-list text-white fs-1"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Produits</a>
+                        <ul class="dropdown-menu shadow">
+                            <li><a class="dropdown-item" href="#">Amidon</a></li>
+                            <li><a class="dropdown-item" href="#">Manioga</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="impacts.html">Impacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn btn-success fw-bold d-none d-lg-block rounded-pill px-4">Collaborer</a>
+        </div>
+    </nav>
+
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="text-uppercase">Agri-Valor</h1>
+            <p>L'excellence agro-industrielle au Togo. Nous transformons le manioc et la citronnelle avec un engagement 100% écologique pour un impact local durable.</p>
+            <a href="about.html" class="btn btn-hero">Découvrir notre vision</a>
+        </div>
+    </div>
+
+    <footer class="footer-mini fixed-bottom">
+        <div class="container text-center">
+            <p class="small mb-0">© 2026 <strong>AGRI-VALOR ÉCOLOGIQUE</strong> - Terre d'Avenir.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
