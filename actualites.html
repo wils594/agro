@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités | AGRI-VALOR ÉCOLOGIQUE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --vert: #27ae60;
+            --jaune: #f1c40f; 
+            --noir-footer: #0a0a0a;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            min-height: 100%; font-family: 'Montserrat', sans-serif;
+        }
+
+        .full-background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('assets/4k.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            z-index: -1;
+        }
+
+        .logo-wrapper {
+            background: #ffffff;
+            padding: 8px; 
+            border-radius: 50%;
+            border: 3px solid var(--vert);
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 85px; height: 85px;
+        }
+
+        .logo-img { height: 60px; width: auto; animation: rotationLogo 20s linear infinite; }
+        @keyframes rotationLogo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .nav-item { background: rgba(255, 255, 255, 0.1); border-radius: 8px; margin: 0 5px; transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--jaune); }
+        .nav-link { color: white !important; font-weight: 600; padding: 10px 15px !important; }
+
+        .content-section { padding: 120px 0 60px; color: white; }
+        
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: none; border-radius: 15px;
+            overflow: hidden; transition: 0.4s;
+            height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .news-card:hover { transform: translateY(-10px); }
+        
+        .card-body { padding: 25px; color: #333; }
+        .news-badge {
+            background: var(--vert); color: white;
+            padding: 4px 12px; border-radius: 4px;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 15px; display: inline-block;
+        }
+        .card-title { font-weight: 800; color: #1a1a1a; margin-bottom: 15px; min-height: 50px; }
+        .card-text { font-size: 0.9rem; line-height: 1.6; color: #555; }
+        
+        .btn-more {
+            background: var(--vert); color: white; border: none;
+            padding: 8px 20px; border-radius: 4px;
+            font-weight: 600; font-size: 0.8rem; transition: 0.3s;
+        }
+        .btn-more:hover { background: var(--jaune); color: black; }
+
+        .main-footer {
+            background-color: var(--noir-footer);
+            color: white; padding: 60px 0 30px;
+            position: relative; z-index: 10; border-top: 4px solid var(--vert);
+        }
+        .footer-title { color: var(--vert); font-weight: 700; margin-bottom: 20px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links a { color: #888; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--jaune); padding-left: 5px; }
+        .social-circle {
+            width: 40px; height: 40px; background: #1a1a1a;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s;
+        }
+        .social-circle:hover { background: var(--jaune); color: black; }
+    </style>
+</head>
+<body>
+
+    <div class="full-background"></div>
+    <div class="overlay"></div>
+
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-wrapper">
+                    <img src="assets/gh-removebg-preview.png" alt="Logo" class="logo-img">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Produits</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="amidon.html">Amidon</a></li>
+                            <li><a class="dropdown-item" href="manioga.html">Manioga</a></li>
+                            <li><a class="dropdown-item" href="huile.html">Huile Essentielle</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="impacts.html">Impacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="https://wa.me/22892380261" class="btn btn-success fw-bold px-4 py-2"><i class="bi bi-whatsapp"></i> Collaborer</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-section container">
+        <div class="text-center mb-5">
+            <h1 class="fw-black display-4" style="font-weight: 900; text-transform: uppercase;">Journal de Bord</h1>
+            <p class="lead opacity-75">Suivez l'évolution d'Agri-Valor Écologique au Togo.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="news-card">
+                    <div style="height: 200px; background: #ddd; background-image: url('assets/ci.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-body">
+                        <span class="news-badge">Production</span>
+                        <h5 class="card-title">Fabrication de l'huile essentielle de Citronnelle</h5>
+                        <p class="card-text">Lancement de notre unité de distillation à la vapeur. Une essence 100% pure pour le marché cosmétique et pharmaceutique.</p>
+                        <button class="btn-more">Lire la suite</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="news-card">
+                    <div style="height: 200px; background: #ddd; background-image: url('assets/3d.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-body">
+                        <span class="news-badge">Innovation</span>
+                        <h5 class="card-title">Le succès du Manioga : Farine Fortifiée</h5>
+                        <p class="card-text">Notre farine de manioc enrichie devient une référence locale. Santé et accessibilité sont au cœur de notre stratégie alimentaire.</p>
+                        <button class="btn-more">Lire la suite</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="news-card">
+                    <div style="height: 200px; background: #ddd; background-image: url('assets/dr.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-body">
+                        <span class="news-badge">Écologie</span>
+                        <h5 class="card-title">Impact Environnemental & Phytoremédiation</h5>
+                        <p class="card-text">Mise en place d'un système innovant de traitement des eaux usées. Agri-Valor s'engage fermement pour le "Zéro Déchet".</p>
+                        <button class="btn-more">Lire la suite</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="news-card">
+                    <div style="height: 200px; background: #ddd; background-image: url('assets/mais 3d.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-body">
+                        <span class="news-badge">Infrastructure</span>
+                        <h5 class="card-title">Implantation à Vigancondji (Ferme 2JGA)</h5>
+                        <p class="card-text">L'unité de transformation dirigée par Ayité Jacques Gaba avance à grands pas à Atoeta. Un levier économique majeur pour la préfecture des Lacs.</p>
+                        <button class="btn-more">Lire la suite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">AGRI-VALOR ÉCOLOGIQUE</h5>
+                    <p class="small text-secondary">Valoriser la terre, transformer le futur. Expertise en transformation durable du manioc et de la citronnelle.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-circle"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-circle"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">Liens Rapides</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Notre Histoire</a></li>
+                        <li><a href="impacts.html">Nos Impacts</a></li>
+                        <li><a href="partenaires.html">Partenaires</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="footer-links text-secondary">
+                        <li><i class="bi bi-geo-alt text-success me-2"></i> Ferme 2JGA, Vigancondji, Atoeta, Togo</li>
+                        <li><i class="bi bi-telephone text-success me-2"></i> +228 92 38 02 61</li>
+                        <li><i class="bi bi-envelope text-success me-2"></i> ayitejacquesg@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="small text-secondary mb-0">&copy; 2026 AGRI-VALOR ÉCOLOGIQUE. Promoteur : Ayité G. Jacques</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

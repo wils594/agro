@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manioga | AGRI-VALOR ÉCOLOGIQUE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --vert: #27ae60;
+            --jaune: #f1c40f; 
+            --noir-footer: #0a0a0a;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            min-height: 100%; font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- CHARTE GRAPHIQUE COMMUNE --- */
+        .full-background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('assets/3d.png'); /* Image spécifique Manioga en fond */
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Plus sombre pour faire ressortir le blanc */
+            z-index: -1;
+        }
+
+        .logo-wrapper {
+            background: #ffffff;
+            padding: 8px; border-radius: 50%;
+            border: 3px solid var(--vert);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 85px; height: 85px;
+        }
+
+        .logo-img { height: 60px; width: auto; animation: rotationLogo 20s linear infinite; }
+        @keyframes rotationLogo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .nav-item { background: rgba(255, 255, 255, 0.1); border-radius: 8px; margin: 0 5px; transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--jaune); }
+        .nav-link { color: white !important; font-weight: 600; padding: 10px 15px !important; }
+
+        /* --- CONTENU MANIOGA --- */
+        .content-section { padding: 120px 0 60px; color: white; }
+        
+        .product-card-main {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            color: #333;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .badge-fortifie {
+            background: var(--jaune);
+            color: #000;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .section-title { font-weight: 900; color: var(--vert); text-transform: uppercase; }
+
+        .feature-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-bottom: 5px solid var(--vert);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .feature-box:hover { transform: translateY(-10px); }
+        .feature-icon { font-size: 2.5rem; color: var(--jaune); margin-bottom: 15px; }
+
+        .format-badge {
+            border: 2px dashed var(--vert);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .format-badge.highlight { background: var(--vert); color: white; border: none; }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--noir-footer);
+            color: white; padding: 60px 0 30px;
+            position: relative; z-index: 10;
+            border-top: 4px solid var(--vert);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="full-background"></div>
+    <div class="overlay"></div>
+
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-wrapper">
+                    <img src="assets/gh-removebg-preview.png" alt="Logo" class="logo-img">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Produits</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="amidon.html">Amidon</a></li>
+                            <li><a class="dropdown-item" href="manioga.html">Manioga</a></li>
+                            <li><a class="dropdown-item" href="huile.html">Huile Essentielle</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="impacts.html">Impacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="https://wa.me/22892380261" class="btn btn-success fw-bold px-4 py-2"><i class="bi bi-whatsapp"></i> Collaborer</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-section container">
+        <div class="text-center mb-5">
+            <span class="badge-fortifie">Innovation Nutritionnelle</span>
+            <h1 class="fw-black display-3" style="font-weight: 900; text-transform: uppercase;">MANIOGA</h1>
+            <p class="lead opacity-75">La farine de manioc fortifiée, pilier de la sécurité alimentaire.</p>
+        </div>
+
+        <div class="product-card-main mb-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">Une révolution locale</h2>
+                    <p>Le <strong>Manioga</strong> est une farine de manioc d'excellence, produite à partir de tubercules frais de la <strong>Ferme 2JGA</strong> à Vigancondji.</p>
+                    <p>Sa particularité ? Elle est <strong>fortifiée en vitamines et minéraux</strong> pour offrir une réponse concrète aux carences alimentaires, tout en conservant le goût authentique du terroir des Lacs. Sa texture légèrement granulée et précuite facilite son utilisation quotidienne.</p>
+                    <div class="mt-4 p-3 border-start border-vert border-4 bg-light">
+                        <p class="small mb-0"><strong>Idéal pour :</strong> Bouillies infantiles, foufou, pâtisseries sans gluten et compléments nutritionnels.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <img src="assets/manioga-details.jpg" alt="Manioga" class="img-fluid rounded-4 shadow">
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="feature-box text-center">
+                    <i class="bi bi-heart-pulse-fill feature-icon"></i>
+                    <h4 class="fw-bold">Santé & Vitalité</h4>
+                    <p class="small text-muted">Enrichie pour booster le système immunitaire et la croissance des enfants.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box text-center">
+                    <i class="bi bi-lightning-charge-fill feature-icon"></i>
+                    <h4 class="fw-bold">Prêt-à-Cuisiner</h4>
+                    <p class="small text-muted">Précuite pour un gain de temps majeur lors de la préparation de vos repas.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box text-center">
+                    <i class="bi bi-shield-check feature-icon"></i>
+                    <h4 class="fw-bold">Qualité 2JGA</h4>
+                    <p class="small text-muted">Une traçabilité totale du champ jusqu'à l'emballage final.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card-main text-center">
+            <h2 class="section-title mb-5">Formats Disponibles</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="format-badge">
+                        <h3 class="fw-black">1 KG</h3>
+                        <p class="fw-bold text-vert mb-0">Format Familial</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="format-badge highlight">
+                        <h3 class="fw-black">5 KG</h3>
+                        <p class="fw-bold mb-0">Format Économique</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <a href="https://wa.me/22892380261" class="btn btn-success btn-lg px-5 py-3 rounded-pill fw-bold shadow">
+                    <i class="bi bi-cart-fill me-2"></i> Commander le Manioga
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container text-center">
+            <h5 class="fw-bold text-vert">AGRI-VALOR ÉCOLOGIQUE</h5>
+            <p class="small opacity-50">&copy; 2026 Projet de Transformation Écologique - Vigancondji, Togo</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
