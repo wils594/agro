@@ -12,8 +12,8 @@
     <style>
         :root {
             --vert: #27ae60;
-            --vert-dark: #1e8449;
-            --marron: #5d4037;
+            --jaune: #f1c40f; 
+            --noir-footer: #0a0a0a;
         }
 
         body, html {
@@ -21,204 +21,119 @@
             height: 100%; font-family: 'Montserrat', sans-serif;
         }
 
-        /* --- LOGO & BRAND STYLE --- */
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: -1px;
-            text-decoration: none !important;
-        }
-        
-        .logo-img {
-            height: 70px;
-            width: auto;
-            margin-right: 12px;
-            object-fit: contain;
-            transition: 0.3s ease;
-        }
-
-        .brand-agri { color: var(--vert); }
-        .brand-valor { color: white; }
-
-        .navbar-brand:hover .logo-img {
-            transform: rotate(-5deg) scale(1.05);
-        }
-
-        /* --- BACKGROUND SLIDER --- */
-        .slider-wrapper {
+        /* --- BACKGROUND 4K --- */
+        .full-background {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2; overflow: hidden;
+            background-image: url('assets/4k.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
         }
-        .slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            opacity: 0; animation: slideFade 15s infinite ease-in-out;
-        }
-        .slide:nth-child(1) { background-image: url('assets/ayite.jpg'); animation-delay: 0s; }
-        .slide:nth-child(2) { background-image: url('assets/ml.jpg'); animation-delay: 5s; }
-        .slide:nth-child(3) { background-image: url('assets/cc.jpg'); animation-delay: 10s; }
-
-        @keyframes slideFade {
-            0% { opacity: 0; transform: scale(1); }
-            10% { opacity: 1; }
-            33% { opacity: 1; }
-            43% { opacity: 0; transform: scale(1.1); }
-            100% { opacity: 0; }
-        }
-
+        
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.73));
+            background: rgba(0, 0, 0, 0.45);
             z-index: -1;
         }
 
-        /* --- HEADER NAVIGATION --- */
-        .navbar {
-            padding: 10px 50px;
-            background: transparent;
-            transition: 0.3s;
-        }
-        .nav-link {
-            color: white !important;
-            font-weight: 600;
-            margin: 0 12px;
-            text-transform: capitalize;
-            transition: 0.3s ease;
-        }
-        .nav-link:hover {
-            color: var(--vert) !important;
+        /* --- LOGO ARRONDI ET TRÈS LISIBLE --- */
+        .logo-wrapper {
+            background: #ffffff; /* Fond blanc pur pour la lisibilité */
+            padding: 8px; 
+            border-radius: 50%;
+            border: 3px solid var(--vert); /* Bordure verte pour le rappel de marque */
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 85px; /* Taille fixe pour garder un cercle parfait */
+            height: 85px;
         }
 
-        .btn-header {
-            background-color: var(--vert);
-            color: white !important;
-            font-weight: 700;
-            border-radius: 4px;
-            padding: 12px 28px;
-            border: none;
+        .logo-img {
+            height: 60px; 
+            width: auto;
+            animation: rotationLogo 20s linear infinite;
+        }
+
+        @keyframes rotationLogo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- NAVIGATION EN CARRÉS --- */
+        .nav-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px; 
+            margin: 0 5px;
             transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .btn-header:hover {
-            background-color: white;
-            color: var(--vert) !important;
-            transform: translateY(-2px);
-        }
+        .nav-item:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--jaune); }
+        .nav-link { color: white !important; font-weight: 600; padding: 10px 15px !important; }
+        .nav-link:hover { color: var(--jaune) !important; }
 
         /* --- HERO SECTION --- */
-        .hero-container {
-            height: 80vh;
-            display: flex;
-            align-items: center; justify-content: center;
-            text-align: center; color: white;
-            padding: 0 20px;
-        }
-        .hero-content h1 {
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            line-height: 0.9;
-        }
-        .hero-content p {
-            max-width: 850px;
-            margin: 0 auto 40px;
-            font-size: 1.25rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-        .btn-hero {
+        .hero-section { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; text-transform: uppercase; }
+        
+        /* BOUTON RÉDUIT */
+        .btn-discover {
             background-color: var(--vert);
-            color: white;
-            font-weight: 800;
-            padding: 18px 50px;
-            border-radius: 4px;
-            text-decoration: none;
+            color: white; text-decoration: none;
+            font-weight: 700; font-size: 0.85rem;
+            padding: 10px 22px; border-radius: 4px;
+            transition: 0.3s; display: inline-block;
+            margin-top: 20px;
             text-transform: uppercase;
-            transition: 0.3s;
-            display: inline-block;
         }
-        .btn-hero:hover { 
-            background-color: white; 
-            color: var(--vert);
-            transform: scale(1.05);
-        }
+        .btn-discover:hover { background-color: var(--jaune); color: black; transform: scale(1.05); }
 
-        /* --- RESPONSIVITÉ MOBILE & TABLETTE --- */
-        @media (max-width: 991px) {
-            .navbar {
-                padding: 10px 20px;
-                background: rgba(0, 0, 0, 0.9); /* Fond sombre sur mobile pour la lisibilité */
-            }
-            .navbar-collapse {
-                background: rgba(0, 0, 0, 0.95);
-                margin-top: 10px;
-                padding: 20px;
-                border-radius: 10px;
-            }
-            .nav-link {
-                margin: 10px 0;
-                text-align: center;
-                font-size: 1.1rem;
-            }
-            .navbar-toggler {
-                border-color: rgba(255,255,255,0.5);
-                padding: 8px;
-            }
-            .navbar-toggler-icon {
-                filter: invert(1); /* Rend l'icône burger blanche */
-            }
-            .hero-container {
-                height: auto;
-                padding-top: 120px;
-                padding-bottom: 60px;
-            }
+        /* --- FOOTER OPAQUE --- */
+        .main-footer {
+            background-color: var(--noir-footer);
+            color: white; padding: 60px 0 30px;
+            position: relative; z-index: 10;
+            border-top: 4px solid var(--vert);
         }
-
-        @media (max-width: 576px) {
-            .logo-img { height: 50px; }
-            .hero-content p { font-size: 1rem; }
-            .btn-hero { padding: 15px 30px; width: 100%; }
+        .footer-title { color: var(--vert); font-weight: 700; margin-bottom: 20px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #888; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--jaune); padding-left: 5px; }
+        .social-circle {
+            width: 40px; height: 40px; background: #1a1a1a;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s;
         }
-
-        /* --- FOOTER --- */
-        .footer-mini {
-            background: rgba(0, 0, 0, 0.85);
-            color: white;
-            padding: 25px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        .social-circle:hover { background: var(--jaune); color: black; }
     </style>
 </head>
 <body>
 
-    <div class="slider-wrapper">
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-    </div>
+    <div class="full-background"></div>
     <div class="overlay"></div>
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/gh-removebg-preview.png" alt="Logo Agri-Valor" class="logo-img">
-                <span class="brand-agri"></span><span class="brand-valor"></span>
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-wrapper">
+                    <img src="assets/gh-removebg-preview.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="ms-3 text-white">
+                </div>
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
-
-            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Produits</a>
-                        <ul class="dropdown-menu border-0 shadow">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Amidon</a></li>
                             <li><a class="dropdown-item" href="#">Manioga</a></li>
                             <li><a class="dropdown-item" href="#">Huile Essentielle</a></li>
@@ -228,29 +143,58 @@
                     <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-                <a href="#" class="btn btn-header d-lg-none mt-3 w-100">Collaborer</a>
+                <a href="https://wa.me/22892380261" class="btn btn-success fw-bold px-4 py-2"><i class="bi bi-whatsapp"></i> Collaborer</a>
             </div>
-            
-            <a href="#" class="btn btn-header d-none d-lg-block">Collaborer</a>
         </div>
     </nav>
 
-    <div class="container hero-container">
+    <div class="hero-section container">
         <div class="hero-content">
-            <h1>AGRI-VALOR</h1>
-            <p>Transformation écologique du manioc et de la citronnelle. Nous valorisons les ressources locales pour construire l'agro-industrie durable de demain au Togo.</p>
-            <a href="#" class="btn btn-hero">Découvrir l'excellence</a>
+            <h1>Excellence Durable</h1>
+            <p class="lead opacity-75">L'agro-industrie écologique au service du Togo.</p>
+            <a href="about.html" class="btn-discover">Découvrir l'excellence</a>
         </div>
     </div>
 
-    <footer class="footer-mini mt-auto">
-        <div class="container text-center">
-            <div class="social-links mb-3">
-                <a href="#" class="text-white mx-2 fs-5"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white mx-2 fs-5"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="text-white mx-2 fs-5"><i class="bi bi-instagram"></i></a>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">AGRI-VALOR ÉCOLOGIQUE</h5>
+                    <p class="small text-secondary">Valoriser la terre, transformer le futur. Nous sommes experts en transformation durable de produits agricoles.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-circle"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-circle"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Liens Rapides</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Notre Histoire</a></li>
+                        <li><a href="impacts.html">Nos Impacts</a></li>
+                        <li><a href="partenaires.html">Partenaires</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Produits</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Amidon</a></li>
+                        <li><a href="#">Manioga</a></li>
+                        <li><a href="#">Citronnelle</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="footer-links text-secondary">
+                        <li><i class="bi bi-geo-alt text-success me-2"></i> Aného, Togo</li>
+                        <li><i class="bi bi-telephone text-success me-2"></i> +228 92 38 02 61</li>
+                    </ul>
+                </div>
             </div>
-            <p class="small opacity-50 mb-0">&copy; 2026 AGRI-VALOR ÉCOLOGIQUE. L'agro-industrie durable.</p>
+            <div class="text-center mt-5">
+                <p class="small text-secondary mb-0">&copy; 2026 AGRI-VALOR ÉCOLOGIQUE.</p>
+            </div>
         </div>
     </footer>
 
